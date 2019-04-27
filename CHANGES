@@ -1,3 +1,44 @@
+4.1.6 2019-04-17
+- Add http proxy "basic access authentication"
+- Add check box to toggle plugin argument input
+- Add apply button for server configuration form
+- Update UI of switching proxy mode
+- Update exception handler for port assignment
+
+4.1.5 2019-03-08
+- Update nuget packages
+- Update the PAC javascript to support user rules in a better way
+- Other minor bug fixes and improvements
+
+4.1.4 2019-02-04
+- Update Privoxy to 3.0.28
+- Enlarge Privoxy max client connections
+- Update the system proxy when user-rule.txt is changed
+- Register restart after system reboot
+
+4.1.3.1 2018-12-09
+- Fix error when usersettings bypasslist is null
+
+4.1.3 2018-12-08
+- Refine sysproxy exception handling
+- Keep user bypass setting when use global proxy mode
+- Update .Net download link
+- Minor improvements
+
+4.1.2 2018-09-13
+- Fix plugin CLI argument environment variable issue (#1969 #1818)
+- Other minor bug fixes and improvements (#1978 #1968 #1993)
+
+4.1.1 2018-08-18
+- Fix auto hotkey reg issue when OS wakeup
+- Other minor bug fixes and improvements
+
+4.1.0 2018-08-05
+- Support portable mode Temp folder
+- Register hotkeys on startup
+- Fix sysproxy hanging issue
+- Minor improvements
+
 4.0.10 2018-05-10
 - Add square bracket for SIP002 IPv6 (RFC3986)
 - Add plugin CLI arguments support

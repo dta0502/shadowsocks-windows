@@ -16,13 +16,16 @@ namespace Shadowsocks
     {
         public static ShadowsocksController MainController { get; private set; }
         public static MenuViewController MenuController { get; private set; }
-
+        public static string[] Args { get; private set; }
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
+        /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
+            // store args for further use
+            Args = args;
             // Check OS since we are using dual-mode socket
             if (!Utils.IsWinVistaOrHigher())
             {
@@ -38,7 +41,7 @@ namespace Shadowsocks
                 "Shadowsocks Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 Process.Start(
-                    "http://dotnetsocial.cloudapp.net/GetDotnet?tfm=.NETFramework,Version=v4.6.2");
+                    "https://www.microsoft.com/download/details.aspx?id=53344");
                 return;
             }
 
@@ -54,6 +57,7 @@ namespace Shadowsocks
                 SystemEvents.PowerModeChanged += SystemEvents_PowerModeChanged;
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
+                AutoStartup.RegisterForRestart(true);
 
                 if (!mutex.WaitOne(0, false))
                 {
@@ -127,7 +131,7 @@ namespace Shadowsocks
                             Thread.Sleep(10 * 1000);
                             try
                             {
-                                MainController.Start();
+                                MainController.Start(false);
                                 Logging.Info("controller started");
                             }
                             catch (Exception ex)

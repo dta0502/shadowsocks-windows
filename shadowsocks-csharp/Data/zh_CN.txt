@@ -4,8 +4,8 @@ Shadowsocks=Shadowsocks
 
 # Menu items
 
-Enable System Proxy=启用系统代理
-Mode=系统代理模式
+System Proxy=系统代理
+Disable=禁用
 PAC=PAC 模式
 Global=全局模式
 Servers=服务器
@@ -53,6 +53,7 @@ Show Password=显示密码
 Encryption=加密
 Plugin Program=插件程序
 Plugin Options=插件选项
+Need Plugin Argument=需要命令行参数
 Plugin Arguments=插件参数
 Proxy Port=代理端口
 Portable Mode=便携模式
@@ -61,6 +62,7 @@ Remarks=备注
 Timeout(Sec)=超时(秒)
 OK=确定
 Cancel=取消
+Apply=应用
 New server=未配置的服务器
 Move &Up=上移(&U)
 Move D&own=下移(&O)
@@ -73,6 +75,9 @@ Proxy Type=代理类型
 Proxy Addr=代理地址
 Proxy Port=代理端口
 If server has a plugin, proxy will not be used=若服务器含有插件，代理将不被使用
+Use Auth=使用认证
+Auth User=认证用户
+Auth Pwd=认证密码
 
 # Log Form
 
@@ -107,12 +112,14 @@ Switch share over LAN=切换局域网共享
 Show Logs=显示日志
 Switch to prev server=切换上个服务器
 Switch to next server=切换下个服务器
-Reg All=注册全部热键
+Reg All=注册全部快捷键
+Reg Hotkeys At Startup=启动时注册快捷键
 
 # Messages
 
 Shadowsocks Error: {0}=Shadowsocks 错误: {0}
-Port already in use=端口已被占用
+Port {0} already in use=端口 {0} 已被占用
+Port {0} is reserved by system=端口 {0} 是系统保留端口
 Invalid server address=非法服务器地址
 Illegal port number format=非法端口格式
 Illegal timeout format=非法超时格式
@@ -144,6 +151,11 @@ Unsupported operating system, use Windows Vista at least.=不支持的操作系�
 Unsupported .NET Framework, please update to 4.6.2 or later.=当前 .NET Framework 版本过低，请升级至4.6.2或更新版本。
 Proxy request failed=代理请求失败
 Proxy handshake failed=代理握手失败
-Register hotkey failed=注册热键失败
-Cannot parse hotkey: {0}=解析热键失败: {0}
+Register hotkey failed=注册快捷键失败
+Cannot parse hotkey: {0}=解析快捷键失败: {0}
 Timeout is invalid, it should not exceed {0}=超时无效，不应超过 {0}
+
+Error occured when process proxy setting, do you want reset current setting and retry?=处理代理设置时发生错误，是否重置当前代理设置并重试？
+Unrecoverable proxy setting error occured, see log for detail=发生不可恢复的代理设置错误，查看日志以取得详情
+Auth user can not be blank=认证用户不能为空
+Auth pwd can not be blank=认证密码不能为空

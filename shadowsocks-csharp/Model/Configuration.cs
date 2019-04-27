@@ -10,6 +10,8 @@ namespace Shadowsocks.Model
     [Serializable]
     public class Configuration
     {
+        public string version;
+
         public List<Server> configs;
 
         // when strategy is set, index is ignored
@@ -100,6 +102,7 @@ namespace Shadowsocks.Model
 
         public static void Save(Configuration config)
         {
+            config.version = UpdateChecker.Version;
             if (config.index >= config.configs.Count)
                 config.index = config.configs.Count - 1;
             if (config.index < -1)
@@ -161,8 +164,20 @@ namespace Shadowsocks.Model
         public static void CheckTimeout(int timeout, int maxTimeout)
         {
             if (timeout <= 0 || timeout > maxTimeout)
-                throw new ArgumentException(string.Format(
-                    I18N.GetString("Timeout is invalid, it should not exceed {0}"), maxTimeout));
+                throw new ArgumentException(
+                    I18N.GetString("Timeout is invalid, it should not exceed {0}", maxTimeout));
+        }
+
+        public static void CheckProxyAuthUser(string user)
+        {
+            if (user.IsNullOrEmpty())
+                throw new ArgumentException(I18N.GetString("Auth user can not be blank"));
+        }
+
+        public static void CheckProxyAuthPwd(string pwd)
+        {
+            if (pwd.IsNullOrEmpty())
+                throw new ArgumentException(I18N.GetString("Auth pwd can not be blank"));
         }
     }
 }
